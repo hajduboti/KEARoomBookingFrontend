@@ -22,18 +22,14 @@ import { LoginComponent } from './login/login.component';
     HomepageComponent,
     PagenotfoundComponent,
     NavbarComponent,
+    RegistrationComponent,
+    LoginComponent 
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatMenuModule,
-    AppRoutingModule
-    RegistrationComponent,
-    LoginComponent
-  ],
-  imports: [
-    BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule
