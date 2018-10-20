@@ -16,6 +16,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
+import { MapComponent } from './map/map.component';
 
 
 
@@ -26,7 +27,8 @@ import { LoginComponent } from './login/login.component';
     PagenotfoundComponent,
     NavbarComponent,
     RegistrationComponent,
-    LoginComponent 
+    LoginComponent,
+    MapComponent 
   ],
   imports: [
     BrowserModule,

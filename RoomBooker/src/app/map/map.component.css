@@ -1,0 +1,19 @@
+.center {
+    margin: auto;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    position: relative;
+    height: 100%;
+    width: 60%;
+    padding-bottom: 100%;
+
+}
+.scaling-svg {
+ position: absolute;
+ height: 50%;
+ width: 90%;
+ left: 0;
+ top: 0;
+}

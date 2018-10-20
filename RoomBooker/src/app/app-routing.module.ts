@@ -4,13 +4,17 @@ import { HomepageComponent } from './homepage/homepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
- 
+import { MapComponent } from './map/map.component';
+
+
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'booking', component: MapComponent }
   { path: '**', component: PagenotfoundComponent }
-  
+
+
 
 ];
 
