@@ -1,27 +1,23 @@
-<div>
-
-<form action="" [formGroup]="registrationForm ">
+<div class="login-page">
+<div class="form">
+<form action="" [formGroup]="registrationForm " class="login-form" >
   <div>
-    <legend>Email</legend>
-      <input type="email" name="email" id="email">
+      <input type="email" name="email" id="email" placeholder="E-mail">
   </div>
   <div>
-    <legend> Password</legend>
-    <input type="password" name="password" id="password">
+    <input type="password" name="password" id="password" placeholder="Password">
   </div>
   <div>
-    <legend> Firstname</legend>
-    <input type="text" name="firstname" id="firstname">
+    <input type="text" name="firstname" id="firstname" placeholder="Firstname">
   </div>
 
   <div>
-    <legend>Lastname</legend>
-    <input type="text" name="lastname" id="lastname">
+    <input type="text" name="lastname" id="lastname" placeholder="Lastname">
   </div>
   <div>
     <button type="submit">Register</button>
   </div>
 </form>
 
-
+</div>
 </div>

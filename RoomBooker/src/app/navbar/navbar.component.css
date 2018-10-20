@@ -5,3 +5,30 @@
 .example-spacer {
   flex: 1 1 auto;
 }
+
+button{
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #3f51b5;
+  width: 10%;
+  border: 0;
+  padding: 10px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+button:hover{
+  font-weight: 600;
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #33408a;
+  width: 10%;
+  border: 0;
+  padding: 10px;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
