@@ -11,7 +11,7 @@ const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'booking', component: MapComponent }
+  { path: 'booking', component: MapComponent },
   { path: '**', component: PagenotfoundComponent }
 
 
