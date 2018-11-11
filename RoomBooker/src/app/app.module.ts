@@ -7,10 +7,12 @@ import {MatButtonModule} from '@angular/material/button';
 
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 import { HomepageComponent } from './homepage/homepage.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -38,7 +40,8 @@ import { MapComponent } from './map/map.component';
     MatMenuModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
