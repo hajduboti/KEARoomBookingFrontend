@@ -4,6 +4,10 @@ import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatInputModule} from '@angular/material/input';
+import { AmazingTimePickerModule } from 'amazing-time-picker';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/';
 
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,7 +34,7 @@ import { MapComponent } from './map/map.component';
     NavbarComponent,
     RegistrationComponent,
     LoginComponent,
-    MapComponent
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,13 +42,18 @@ import { MapComponent } from './map/map.component';
     MatToolbarModule,
     MatButtonModule,
     MatCardModule,
+    MatInputModule,
     MatMenuModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    AmazingTimePickerModule
   ],
-  providers: [],
+
+  providers: [MatDatepickerModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

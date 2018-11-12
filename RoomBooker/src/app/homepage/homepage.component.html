@@ -1,7 +1,21 @@
-<div>
+<div class="titleContainer">
   <h1>Welcome to KEA's room booking system</h1>
 
 </div>
+<div class="titleContainer">
+  <mat-form-field class="example-full-width">
+    <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+    <input matInput atp-time-picker value="" placeholder="From"/>
+  </mat-form-field>
+  <mat-form-field class="example-full-width">
+   <input matInput atp-time-picker value="" placeholder="To"/>
+  </mat-form-field>
+</div>
+
 
 <ul class="campuses">
   <li *ngFor="let c of campuses; let i=index;">
