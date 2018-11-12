@@ -21,7 +21,8 @@
 }
 
 h1{
-  padding: 0px;
+
+  text-align: center; 
 }
 
 .mat-card-content, .mat-card-header .mat-card-title {
