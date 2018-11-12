@@ -1,0 +1,18 @@
+.example-card {
+  max-width: 300px;
+}
+
+.cardContainer{
+  display: inline-block;
+  padding:10px;
+}
+.rowContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  flex-flow: row wrap;
+}
+.mat-card-content, .mat-card-header .mat-card-title {
+  font-size: 20px;
+}

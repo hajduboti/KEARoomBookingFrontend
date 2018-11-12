@@ -3,7 +3,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatCardModule} from '@angular/material/card';
 
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -30,13 +30,14 @@ import { MapComponent } from './map/map.component';
     NavbarComponent,
     RegistrationComponent,
     LoginComponent,
-    MapComponent 
+    MapComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
     MatButtonModule,
+    MatCardModule,
     MatMenuModule,
     AppRoutingModule,
     FormsModule,
