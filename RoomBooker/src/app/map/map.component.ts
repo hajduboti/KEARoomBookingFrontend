@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-let available=[1,5,7,9,22,23,24,25,26,27,30];
+const available=["room1","room5","room7","room9","room22","room23","room24","room25","room26","room27","room30"];
 
 @Component({
   selector: 'app-map',
@@ -16,7 +16,6 @@ export class MapComponent implements OnInit {
       console.log(available[i]);
       var boi = document.getElementById(available[i]);
       boi.style.fill="white";
-      boi.display='none';
     }
   }
 
