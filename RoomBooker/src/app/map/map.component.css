@@ -10,10 +10,22 @@
     padding-bottom: 100%;
 
 }
+.svgcontainer{
+  padding-top: 30px;
+  position: relative;
+  z-index: 1;
+  width: 75%;
+  margin: 0 auto;
+}
 .scaling-svg {
  position: absolute;
  height: 50%;
  width: 90%;
  left: 0;
  top: 0;
+}
+
+svg:hover #room,
+svg:hover #due {
+  fill: #ffffad;
 }
