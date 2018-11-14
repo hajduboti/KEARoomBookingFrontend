@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { CampusService } from '../campus.service'
+import { CampusService } from '../campus.service';
+import { AmazingTimePickerService } from 'amazing-time-picker';
+
+
 
 
 @Component({
@@ -8,15 +11,26 @@ import { CampusService } from '../campus.service'
   styleUrls: ['./homepage.component.css']
 })
 export class HomepageComponent implements OnInit {
+  minDate = new Date();
+  maxDate = new Date(Date.now()+ 24192e5);
+  
 
   campuses:any = [];
 
-  constructor(public campus:CampusService) { }
+  constructor(private atp: AmazingTimePickerService, public campus:CampusService) { }
 
   ngOnInit() {
     this.getCampuses();
 
   }
+
+  getFromTime(){
+    var boundary = (<HTMLInputElement>document.getElementById("fromtime")).value;
+    (<HTMLInputElement>document.getElementById("fromtime")).attributes["start"] = boundary;
+    console.log((<HTMLInputElement>document.getElementById("fromtime")).attributes["start"]);
+  }
+
+
 
   getCampuses() {
     this.campuses = [];
@@ -25,5 +39,7 @@ export class HomepageComponent implements OnInit {
       this.campuses = data;
     });
   }
+
+  
 
 }
