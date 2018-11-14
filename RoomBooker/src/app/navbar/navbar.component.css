@@ -14,7 +14,7 @@ img{
 img:hover{
   cursor: pointer;
 }
-
+ 
 button{
   font-weight: 600;
   font-family: "Roboto", sans-serif;
@@ -43,6 +43,7 @@ button:hover{
 }
 .topbar{
   background-color: #3f51b5;
+  border-bottom: 0.px solid black;
 }
 
 .fixed-header {
