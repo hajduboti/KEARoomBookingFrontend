@@ -1,21 +1,26 @@
 <div class="login-page">
 <div class="form">
-<form action="" [formGroup]="registrationForm " class="login-form" >
-  <div>
-      <input type="email" name="email" id="email" placeholder="E-mail">
+<form [formGroup]="registerForm" class="login-form" >
+  <div class="inputField">
+      <input formControlName="email" type="email" name="email" id="email" placeholder="E-mail" >
+      <mat-error class="error-message" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched">KEA email is required</mat-error>
   </div>
-  <div>
-    <input type="password" name="password" id="password" placeholder="Password">
-  </div>
-  <div>
-    <input type="text" name="firstname" id="firstname" placeholder="Firstname">
+  <div class="inputField">
+      <input formControlName="password" type="password" name="password" id="password" placeholder="Password">
+      <mat-error class="error-message" *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">password is required</mat-error>
   </div>
 
-  <div>
-    <input type="text" name="lastname" id="lastname" placeholder="Lastname">
+  <div class="inputField">
+    <input formControlName="firstName" type="text" name="firstname" id="firstname" placeholder="Firstname">
+    <mat-error class="error-message" *ngIf="!registerForm.controls['firstName'].valid && registerForm.controls['firstName'].touched">First name is required</mat-error>
   </div>
-  <div>
-    <button type="submit">Register</button>
+
+  <div class="inputField">
+    <input formControlName="lastName" type="text" name="lastname" id="lastname" placeholder="Lastname">
+    <mat-error class="error-message" *ngIf="!registerForm.controls['lastName'].valid && registerForm.controls['lastName'].touched">Last name is required</mat-error>
+  </div>
+  <div class="inputField">
+    <button class="btn" [disabled]="registerForm.invalid" (click)="register()">Register</button>
   </div>
 </form>
 

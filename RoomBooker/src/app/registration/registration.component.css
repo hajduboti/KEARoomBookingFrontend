@@ -90,6 +90,19 @@
 .container .info span .fa {
   color: #EF3B3A;
 }
+.error-message {
+  display: block;
+  font-size: 75%;
+  bottom: -2em;
+  text-align: left;
+}
+.form[_ngcontent-c4] input[_ngcontent-c4]{
+  margin: 0px;
+}
+.inputField{
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
 body {
   background: #76b852; /* fallback for old browsers */
   background: -webkit-linear-gradient(right, #3f51b5, #3f51b5);

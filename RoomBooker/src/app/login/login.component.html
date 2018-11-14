@@ -1,9 +1,17 @@
 <div class="login-page">
   <div class="form">
-    <form class="login-form">
-      <input type="text" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-      <button>login</button>
+    <form [formGroup]="loginForm" class="login-form">
+      <div class="inputField">
+          <input formControlName="email" type="email" name="email" id="email" placeholder="E-mail" >
+          <mat-error class="error-message" *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">KEA email is required</mat-error>
+      </div>
+      <div class="inputField">
+          <input formControlName="password" type="password" name="password" id="password" placeholder="Password">
+          <mat-error class="error-message" *ngIf="!loginForm.controls['password'].valid && loginForm.controls['password'].touched">password is required</mat-error>
+      </div>
+      <div class="inputField">
+        <button class="btn" [disabled]="loginForm.invalid" (click)="logIn()">Log In</button>
+      </div>
       <p class="message">Not registered? <a routerLink="../register" >Create an account</a></p>
     </form>
   </div>
