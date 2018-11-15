@@ -26,7 +26,7 @@ export class CampusService {
   }
 
   getCampuses(): Observable<any> {
-    return this.http.get(endpoint + 'campus').pipe(
+    return this.http.get("http://localhost:8000/campus/room/details").pipe(
       map(this.extractData));
   }
 

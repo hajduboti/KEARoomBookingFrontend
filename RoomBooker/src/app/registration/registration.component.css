@@ -113,3 +113,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+mat-error{
+  padding-top:10px;
+}

@@ -8,7 +8,7 @@ import { AmazingTimePickerService } from 'amazing-time-picker';
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
-  styleUrls: ['./homepage.component.css']
+  styleUrls: ['./homepage.component.css'],
 })
 export class HomepageComponent implements OnInit {
   minDate = new Date();

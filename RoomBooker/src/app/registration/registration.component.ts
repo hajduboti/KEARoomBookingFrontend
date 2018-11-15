@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { RegistrationService } from '../registration.service';
+import { last } from 'rxjs/operators';
 
 
 @Component({
@@ -8,29 +10,42 @@ import { FormGroup, FormBuilder, Validators} from '@angular/forms';
   styleUrls: ['./registration.component.css']
 })
 export class RegistrationComponent implements OnInit {
+
+  register;
   registerForm: FormGroup;
   submitted = false;
   firstName = '';
   lastName = '';
   email = '';
   password = '';
-  password = '';
-  allert = 'missing field';
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private rs: RegistrationService) {
     this.registerForm = fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
-    email: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@stud.kea.dk')]],
+    email: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@stud.kea.dk')])],
     password: ['', Validators.required]
   });}
 
   ngOnInit() {
+ 
+     }
 
+  registerUser(){
+    this.register= {
+      "emailField":this.registerForm.controls["email"].value,
+      "passwordField": this.registerForm.controls["password"].value,
+      "firstNameField": this.registerForm.controls["firstName"].value,
+      "lastNameField": this.registerForm.controls["lastName"].value,
+      
   }
-
-  register(){
-    console.log('Registered')
+    console.log(this.register);
+    this.rs.registerUser(this.register).subscribe(  
+      response => {
+        console.log('yay');
+      },
+      error => console.log("error", error)
+    );
   }
 
 }

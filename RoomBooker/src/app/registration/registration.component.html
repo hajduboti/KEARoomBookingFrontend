@@ -7,7 +7,7 @@
   </div>
   <div class="inputField">
       <input formControlName="password" type="password" name="password" id="password" placeholder="Password">
-      <mat-error class="error-message" *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">password is required</mat-error>
+      <mat-error class="error-message" *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">Password is required</mat-error>
   </div>
 
   <div class="inputField">
@@ -20,7 +20,7 @@
     <mat-error class="error-message" *ngIf="!registerForm.controls['lastName'].valid && registerForm.controls['lastName'].touched">Last name is required</mat-error>
   </div>
   <div class="inputField">
-    <button class="btn" [disabled]="registerForm.invalid" (click)="register()">Register</button>
+    <button class="btn" [disabled]="registerForm.invalid" (click)="registerUser()">Register</button>
   </div>
 </form>
 
