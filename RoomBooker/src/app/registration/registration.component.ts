@@ -17,6 +17,7 @@ export class RegistrationComponent implements OnInit {
   firstName = '';
   lastName = '';
   email = '';
+  username;
   password = '';
 
   constructor(private fb: FormBuilder, private rs: RegistrationService) {
@@ -34,6 +35,7 @@ export class RegistrationComponent implements OnInit {
   registerUser(){
     this.register= {
       "emailField":this.registerForm.controls["email"].value,
+      "usernameField":this.registerForm.controls["email"].value,
       "passwordField": this.registerForm.controls["password"].value,
       "firstNameField": this.registerForm.controls["firstName"].value,
       "lastNameField": this.registerForm.controls["lastName"].value,

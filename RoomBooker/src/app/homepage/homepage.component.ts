@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CampusService } from '../campus.service';
 import { AmazingTimePickerService } from 'amazing-time-picker';
-
+import { BookingService } from '../booking.service';
 
 
 
@@ -13,33 +12,26 @@ import { AmazingTimePickerService } from 'amazing-time-picker';
 export class HomepageComponent implements OnInit {
   minDate = new Date();
   maxDate = new Date(Date.now()+ 24192e5);
-  
-
+  date = new Date();
   campuses:any = [];
 
-  constructor(private atp: AmazingTimePickerService, public campus:CampusService) { }
+  constructor(private atp: AmazingTimePickerService, public bs:BookingService) { }
 
   ngOnInit() {
-    this.getCampuses();
+    //this.getCampuses();
 
   }
 
-  getFromTime(){
-    var boundary = (<HTMLInputElement>document.getElementById("fromtime")).value;
-    (<HTMLInputElement>document.getElementById("fromtime")).attributes["start"] = boundary;
-    console.log((<HTMLInputElement>document.getElementById("fromtime")).attributes["start"]);
+  getBookingTimes(){
+    var fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
+    var totime = (<HTMLInputElement>document.getElementById("totime")).value;
+    var mydate = this.date;
+    var m = new Date(mydate).getMonth() + 1;
+    var workingDate = mydate.getFullYear() + "-" + m + "-" + mydate.getDate();
+    return("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime);
   }
 
-
-
-  getCampuses() {
-    this.campuses = [];
-    this.campus.getCampuses().subscribe((data: {}) => {
-      console.log(data);
-      this.campuses = data;
-    });
-  }
-
+  
   
 
 }

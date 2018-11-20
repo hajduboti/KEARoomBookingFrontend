@@ -13,34 +13,29 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class CampusService {
+export class BookingService {
   
   
 
   constructor(private http: HttpClient) {
   }
 
+  
+  getRooms(parameters): Observable<any> {
+    return this.http.post("http://localhost:8000/booking", parameters);
+  }
+
+
+
   private extractData(res: Response) {
     let body = res;
     return body || { };
   }
 
-  getCampuses(): Observable<any> {
+  getCampus(): Observable<any> {
     return this.http.get("http://localhost:8000/campus/room/details").pipe(
       map(this.extractData));
   }
 
-  private handleError<T> (operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-  
-      // TODO: send the error to remote logging infrastructure
-      console.error(error); // log to console instead
-  
-      // TODO: better job of transforming error for user consumption
-      console.log(`${operation} failed: ${error.message}`);
-  
-      // Let the app keep running by returning an empty result.
-      return of(result as T);
-    };
-  }
 }
+  
