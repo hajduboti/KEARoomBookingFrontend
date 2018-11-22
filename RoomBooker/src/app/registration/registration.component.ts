@@ -34,11 +34,11 @@ export class RegistrationComponent implements OnInit {
 
   registerUser(){
     this.register= {
-      "emailField":this.registerForm.controls["email"].value,
-      "usernameField":this.registerForm.controls["email"].value,
-      "passwordField": this.registerForm.controls["password"].value,
-      "firstNameField": this.registerForm.controls["firstName"].value,
-      "lastNameField": this.registerForm.controls["lastName"].value,
+      "email":this.registerForm.controls["email"].value,
+      "password1": this.registerForm.controls["password"].value,
+      "password2": this.registerForm.controls["password"].value,
+      "first_name": this.registerForm.controls["firstName"].value,
+      "last_name": this.registerForm.controls["lastName"].value,
       
   }
     console.log(this.register);

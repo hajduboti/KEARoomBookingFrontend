@@ -19,18 +19,20 @@ export class BookingService {
 
   constructor(private http: HttpClient) {
   }
-
-  
-  getRooms(parameters): Observable<any> {
-    return this.http.post("http://localhost:8000/booking", parameters);
-  }
-
-
-
   private extractData(res: Response) {
     let body = res;
     return body || { };
   }
+  
+  getRooms(parameters): Observable<any> {
+    console.log("http://localhost:8000/booking?" + parameters);
+    return this.http.get("http://localhost:8000/booking?" + parameters).pipe(
+      map(this.extractData));
+  }
+
+
+
+
 
   getCampus(): Observable<any> {
     return this.http.get("http://localhost:8000/campus/room/details").pipe(

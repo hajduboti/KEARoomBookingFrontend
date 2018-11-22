@@ -28,7 +28,8 @@ export class HomepageComponent implements OnInit {
     var mydate = this.date;
     var m = new Date(mydate).getMonth() + 1;
     var workingDate = mydate.getFullYear() + "-" + m + "-" + mydate.getDate();
-    return("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime);
+    console.log(this.bs.getRooms("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime));
+
   }
 
   
