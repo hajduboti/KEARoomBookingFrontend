@@ -5,21 +5,35 @@ import { map, catchError, tap } from 'rxjs/operators';
 
 const endpoint = 'http://localhost:8000/registration';
 const loginUrl = 'http://127.0.0.1:8000/login/';
-const httpOptions = {
-  headers: new HttpHeaders({
-    'Content-Type':  'application/json'
-  })
-};
 
 @Injectable({
   providedIn: 'root'
 })
 export class RegistrationService {
 
-  constructor(private http: HttpClient) { }
+  // http options used for making API calls
+ private httpOptions: any;
+
+ // the actual JWT token
+ public token: string;
+
+ // error messages received from the login attempt
+ public errors: any = [];
+
+  constructor(private http: HttpClient) {
+    this.httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+  }
 
   registerUser(userData): Observable<any> {
     return this.http.post(endpoint, userData);
+  }
+
+  private updateData(token) {
+    this.token = token;
+    this.errors = [];
+    console.log('hey' + token)
   }
 
   logInUser(loginCreds): Observable<any> {

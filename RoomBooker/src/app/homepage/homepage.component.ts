@@ -21,6 +21,14 @@ export class HomepageComponent implements OnInit {
     //this.getCampuses();
 
   }
+  getAllRooms(){
+      this.bs.getAllRooms().subscribe(
+        response => {
+          console.log(response);
+        },
+        error => console.log('error')
+      );
+  }
 
   getBookingTimes(){
     var fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
@@ -29,10 +37,9 @@ export class HomepageComponent implements OnInit {
     var m = new Date(mydate).getMonth() + 1;
     var workingDate = mydate.getFullYear() + "-" + m + "-" + mydate.getDate();
     console.log(this.bs.getRooms("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime));
-
   }
 
-  
-  
+
+
 
 }
