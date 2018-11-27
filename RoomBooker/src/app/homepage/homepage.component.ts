@@ -39,7 +39,8 @@ export class HomepageComponent implements OnInit {
     console.log(this.bs.getRooms("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime));
   }
 
-
-
+  logOut(){
+    localStorage.clear();
+  }
 
 }
