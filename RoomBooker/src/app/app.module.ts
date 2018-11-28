@@ -21,6 +21,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 
@@ -51,7 +52,7 @@ import { MapComponent } from './map/map.component';
     AmazingTimePickerModule
   ],
 
-  providers: [MatDatepickerModule],
+  providers: [MatDatepickerModule, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
