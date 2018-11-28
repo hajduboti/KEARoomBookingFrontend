@@ -29,18 +29,36 @@ export class HomepageComponent implements OnInit {
         error => console.log('error')
       );
   }
+  createRoomList(response){
+
+  }
 
   getBookingTimes(){
+    var val;
+    var nonAvailableRoom = [];
     var fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
     var totime = (<HTMLInputElement>document.getElementById("totime")).value;
     var mydate = this.date;
     var m = new Date(mydate).getMonth() + 1;
     var workingDate = mydate.getFullYear() + "-" + m + "-" + mydate.getDate();
-    console.log(this.bs.getRooms("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime));
+    var res = encodeURI("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime);
+    this.bs.getRooms(res).subscribe(
+      response => {
+        for(val of response){
+          // console.log(val.roomID)
+          nonAvailableRoom.push(val.roomID)
+        }
+        console.log(nonAvailableRoom)
+      },
+      error => console.log('error')
+    );
+
   }
 
   logOut(){
     localStorage.clear();
   }
+
+
 
 }

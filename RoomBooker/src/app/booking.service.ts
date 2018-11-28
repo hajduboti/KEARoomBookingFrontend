@@ -47,19 +47,18 @@ export class BookingService {
         headers: new HttpHeaders({
           'Content-Type':  'application/json',
           'Authorization': 'token ' + token
-      
+
         })
       };
     }
-    
+
     console.log(httpOptions);
-    
     return this.http.get(baseUrl + '/booking?', httpOptions);
   }
 
   getRooms(timeframe): Observable<any> {
-    console.log(baseUrl + '/booking_' + timeframe)
-    return this.http.get(baseUrl + '/booking_' + timeframe).pipe(
+    console.log(baseUrl + '/booking?' + timeframe)
+    return this.http.get(baseUrl + '/booking?' + timeframe).pipe(
       map(this.extractData));
   }
 
