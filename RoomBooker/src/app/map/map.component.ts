@@ -13,7 +13,6 @@ export class MapComponent implements OnInit {
 
   ngOnInit() {
     for(let i in available){
-      console.log(available[i]);
       var boi = document.getElementById(available[i]);
       boi.style.fill="white";
     }
@@ -32,6 +31,5 @@ export class MapComponent implements OnInit {
     i.style.display = 'inline';
   }
   myFunction(){
-      console.log('test');
     }
 }
