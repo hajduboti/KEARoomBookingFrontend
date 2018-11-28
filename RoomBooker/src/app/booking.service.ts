@@ -57,8 +57,22 @@ export class BookingService {
   }
 
   getRooms(timeframe): Observable<any> {
+    tokenKey = JSON.parse(localStorage.getItem('currentUser'));
+    if (tokenKey == null){
+      this.router.navigate(['login'])
+
+    }else{
+      token = tokenKey['key'];
+      httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'Authorization': 'token ' + token
+
+        })
+      };
+    }
     console.log(baseUrl + '/booking?' + timeframe)
-    return this.http.get(baseUrl + '/booking?' + timeframe).pipe(
+    return this.http.get(baseUrl + '/booking?' + timeframe, httpOptions).pipe(
       map(this.extractData));
   }
 
