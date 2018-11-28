@@ -3,7 +3,7 @@
 
     <img routerLink="" routerLinkActive="active" src="https://scontent.fcph2-1.fna.fbcdn.net/v/t1.15752-9/s2048x2048/46101242_942055092659247_3774244112413229056_n.png?_nc_cat=111&_nc_ht=scontent.fcph2-1.fna&oh=bc056bb18e2bdea6fe706123abbc52e1&oe=5C72C6CA" alt="" height="48 px">
     <span class="example-spacer"></span>
-    <button mat-button  routerLink="login" routerLinkActive="active" >Log in</button>
+    <button mat-button *ngIf='!show' routerLink="login" routerLinkActive="active" >Log in</button>
 
 
   </mat-toolbar-row>
