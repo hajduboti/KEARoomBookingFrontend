@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http'
 import { RequestOptions } from '@angular/http';
 import { Observable, of } from 'rxjs';
 import { map, catchError, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 const baseUrl ='http://localhost:8000';
 let tokenKey;
@@ -28,7 +29,7 @@ let httpOptions = {
 })
 export class BookingService {
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
   }
   private extractData(res: Response) {
     let body = res;
@@ -37,14 +38,20 @@ export class BookingService {
 
   getAllRooms(): Observable<any> {
     tokenKey = JSON.parse(localStorage.getItem('currentUser'));
-    token = tokenKey['key'];
-    httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'token ' + token
+    if (tokenKey == null){
+      this.router.navigate(['login'])
+
+    }else{
+      token = tokenKey['key'];
+      httpOptions = {
+        headers: new HttpHeaders({
+          'Content-Type':  'application/json',
+          'Authorization': 'token ' + token
+      
+        })
+      };
+    }
     
-      })
-    };
     console.log(httpOptions);
     
     return this.http.get(baseUrl + '/booking?', httpOptions);
@@ -59,6 +66,7 @@ export class BookingService {
   getCampus(): Observable<any> {
     return this.http.get(baseUrl + "/campus/room/details").pipe(
       map(this.extractData));
-  }
+
+    }
 
 }
