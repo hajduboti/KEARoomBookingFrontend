@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-navbar',
@@ -7,26 +8,29 @@ import { AuthService } from '../auth/auth.service';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent implements OnInit {
-  show;
-  constructor(private as:AuthService) { }
-  ngOnInit() {
-    // let tokenKey = JSON.parse(localStorage.getItem('currentUser'));
-    //
-    // try{
-    //     let token = tokenKey['key'];
-    //   }catch(e){
-    //     let token = undefined;
-    //   }
-    //   if(token !== undefined){
-    //   console.log('not showing');
-    //   console.log(token);
-    //   show = false;
-    //
-    // }else{
-    //   console.log('showing');
-    //   show = true;
-    // }
-  }
 
+  
+  authenticated:boolean;
+  constructor(private as:AuthService) {
+    
+   }
+  ngOnInit() {
+    this.as.currentUser.subscribe(userStatus => this.authenticated = userStatus)
+ }
+
+ logOut(){
+  localStorage.clear();
+  let status = this.isAuthenticated();
+  this.as.changeLoggedStatus(status);
+}
+public isAuthenticated(){
+  if (localStorage.getItem('currentUser') == null){
+    return false;
+  }else{
+    return true;
+  }
+}
+  
 
 }
+
