@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import { BookingService } from '../booking.service';
 import { DataService } from '../data.service';
@@ -16,16 +17,24 @@ export class HomepageComponent implements OnInit {
   maxDate = new Date(Date.now()+ 24192e5);
   date = new Date();
   campuses:any = [];
+  nonAvailableRoom = [];
 
 
-  constructor(private atp: AmazingTimePickerService, public bs:BookingService, public dataService: DataService) { }
+  constructor(
+    private atp: AmazingTimePickerService,
+    public bs:BookingService,
+    public dataService: DataService
+    private route: ActivatedRoute,
+    private router: Router
+  ) { }
 
-  ngOnInit() {
-    //this.getCampuses();
-
-  }
-
-
+  // ngOnInit() : void {
+  //   this.route.data
+  //     .subscribe((data: { hero: Hero }) => {
+  //       this.hero = data.hero;
+  //     });
+  // }
+  //
 
   getAllRooms(){
       this.bs.getAllRooms().subscribe(
@@ -39,9 +48,9 @@ export class HomepageComponent implements OnInit {
 
   }
 
+
   getBookingTimes(){
     var val;
-    var nonAvailableRoom = [];
     var fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
     var totime = (<HTMLInputElement>document.getElementById("totime")).value;
     var mydate = this.date;
@@ -51,14 +60,17 @@ export class HomepageComponent implements OnInit {
     this.bs.getRooms(res).subscribe(
       response => {
         for(val of response){
-          // console.log(val.roomID)
-          nonAvailableRoom.push(val.roomID)
+          this.nonAvailableRoom.push(val.roomID)
         }
-        console.log('nonAvailableRoom ' + nonAvailableRoom)
-        this.dataService.setdata(nonAvailableRoom);
+        this.dataService.setdata(this.nonAvailableRoom);
       },
-      error => console.log('nonAvailableRoom ' + 'error')
+      error => console.log('error')
     );
+    setTimeout(() =>
+    {
+      this.router.navigate(['/booking']);
+    },
+    200);
 
   }
 

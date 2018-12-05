@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
+  nonAvailableRoom = [];
 
   constructor(public dataService: DataService) {
     (<any>window).right = this.right.bind(this);
@@ -17,9 +18,9 @@ export class MapComponent implements OnInit {
   }
 
   ngOnInit() {
-    let available = this.dataService.getdata();
-    for(let i in available){
-      var boi = document.getElementById(available[i]);
+    this.nonAvailableRoom = this.dataService.getdata();
+    for(let i in this.nonAvailableRoom){
+      var boi = document.getElementById(this.nonAvailableRoom[i]);
       boi.style.fill="gray";
     }
   }
