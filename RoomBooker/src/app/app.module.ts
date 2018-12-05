@@ -23,6 +23,9 @@ import { LoginComponent } from './login/login.component';
 import { MapComponent } from './map/map.component';
 import { AuthGuard } from './auth/auth.guard';
 
+import { DataService } from './data.service';
+
+
 
 
 @NgModule({
@@ -52,7 +55,7 @@ import { AuthGuard } from './auth/auth.guard';
     AmazingTimePickerModule
   ],
 
-  providers: [MatDatepickerModule, AuthGuard],
+  providers: [MatDatepickerModule, AuthGuard, DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

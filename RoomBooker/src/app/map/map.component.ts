@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
-const available=["room1","room5","room7","room9","room22","room23","room24","room25","room26","room27","room30"];
+
 
 @Component({
   selector: 'app-map',
@@ -9,14 +10,20 @@ const available=["room1","room5","room7","room9","room22","room23","room24","roo
 })
 export class MapComponent implements OnInit {
 
-  constructor() {(<any>window).right = this.right.bind(this);(<any>window).left = this.left.bind(this);}
+  constructor(public dataService: DataService) {
+    (<any>window).right = this.right.bind(this);
+    (<any>window).left = this.left.bind(this);
+
+  }
 
   ngOnInit() {
+    let available = this.dataService.getdata();
     for(let i in available){
       var boi = document.getElementById(available[i]);
-      boi.style.fill="white";
+      boi.style.fill="gray";
     }
   }
+
 
   right(){
     var i = document.getElementById("Layer_1");

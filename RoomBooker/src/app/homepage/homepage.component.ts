@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import { BookingService } from '../booking.service';
+import { DataService } from '../data.service';
+
 
 
 
@@ -15,18 +17,22 @@ export class HomepageComponent implements OnInit {
   date = new Date();
   campuses:any = [];
 
-  constructor(private atp: AmazingTimePickerService, public bs:BookingService) { }
+
+  constructor(private atp: AmazingTimePickerService, public bs:BookingService, public dataService: DataService) { }
 
   ngOnInit() {
     //this.getCampuses();
 
   }
+
+
+
   getAllRooms(){
       this.bs.getAllRooms().subscribe(
         response => {
-          console.log(response);
+          console.log('all rooms ' + response);
         },
-        error => console.log('error')
+        error => console.log('all rooms ' + 'error')
       );
   }
   createRoomList(response){
@@ -48,9 +54,10 @@ export class HomepageComponent implements OnInit {
           // console.log(val.roomID)
           nonAvailableRoom.push(val.roomID)
         }
-        console.log(nonAvailableRoom)
+        console.log('nonAvailableRoom ' + nonAvailableRoom)
+        this.dataService.setdata(nonAvailableRoom);
       },
-      error => console.log('error')
+      error => console.log('nonAvailableRoom ' + 'error')
     );
 
   }
