@@ -21,7 +21,7 @@ export class MapComponent implements OnInit {
     this.nonAvailableRoom = this.dataService.getdata();
     for(let i in this.nonAvailableRoom){
       var boi = document.getElementById(this.nonAvailableRoom[i]);
-      boi.style.fill="gray";
+      boi.style.fill="#cecece";
     }
   }
 
