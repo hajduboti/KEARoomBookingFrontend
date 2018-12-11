@@ -25,6 +25,8 @@ export class MapComponent implements OnInit {
 
 
   ngOnInit() {
+    this.startDate = this.dataService.getStartDate();
+    this.endDate = this.dataService.getEndDate();
     this.nonAvailableRoom = this.dataService.getdata();
     for(let i in this.nonAvailableRoom){
       var boi = document.getElementById(this.nonAvailableRoom[i]);
@@ -36,8 +38,8 @@ export class MapComponent implements OnInit {
     let user = JSON.parse(localStorage.getItem('currentUser'));
     this.emailID = user['user'];
     this.bookingData= {
-      "startDate": "2018-12-20 15:00",
-      "endDate": "2018-12-20 16:00",
+      "startDate": this.startDate,
+      "endDate": this.endDate,
       "roomID": "A210",
       "emailID": 16
     }

@@ -4,6 +4,7 @@ import { AmazingTimePickerService } from 'amazing-time-picker';
 import { BookingService } from '../booking.service';
 import { DataService } from '../data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { from } from 'rxjs';
 
 
 
@@ -76,12 +77,14 @@ export class HomepageComponent implements OnInit {
     var m = new Date(mydate).getMonth() + 1;
     var workingDate = mydate.getFullYear() + "-" + m + "-" + mydate.getDate();
     var res = encodeURI("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime);
+    this.dataService.setDates( workingDate + " " + fromtime, workingDate + " " + totime);
     this.bs.getRooms(res).subscribe(
       response => {
         for(val of response){
           this.nonAvailableRoom.push(val.roomID)
         }
         this.dataService.setdata(this.nonAvailableRoom);
+        // this.dataService.setDates(workingDate + " " + fromtime, workingDate + " " + totime);
       },
       error => console.log('error')
     );

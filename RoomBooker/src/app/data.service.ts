@@ -14,9 +14,9 @@ export class DataService {
     this.serviceData = value;
   }
 
-  setDates(startDate, endDate){
-    this.startDate = startDate;
-    this.endDate = endDate;
+  setDates(startTime, endTime){
+    this.startDate = startTime;
+    this.endDate = endTime;
   }
 
   getStartDate(){
