@@ -39,7 +39,7 @@ export class RegistrationComponent implements OnInit {
       "password2": this.registerForm.controls["password"].value,
       "first_name": this.registerForm.controls["firstName"].value,
       "last_name": this.registerForm.controls["lastName"].value,
-  }
+      }
     console.log(this.register);
     this.rs.registerUser(this.register).subscribe(
       response => {

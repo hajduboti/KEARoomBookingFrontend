@@ -82,4 +82,8 @@ export class BookingService {
 
     }
 
+  bookRoom(bookingData): Observable<any>{
+    return this.http.post(baseUrl + "/booking", bookingData );
+  }
+
 }

@@ -3,6 +3,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import { BookingService } from '../booking.service';
 import { DataService } from '../data.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 
 
@@ -16,6 +17,9 @@ export class HomepageComponent implements OnInit {
   minDate = new Date();
   maxDate = new Date(Date.now()+ 24192e5);
   date = new Date();
+  dateForm: FormGroup;
+  fromtime = '';
+  totime ='';
   campuses:any = [];
   nonAvailableRoom = [];
 
@@ -23,18 +27,22 @@ export class HomepageComponent implements OnInit {
   constructor(
     private atp: AmazingTimePickerService,
     public bs:BookingService,
-    public dataService: DataService
+    public dataService: DataService,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private fb: FormBuilder
+    ){ 
+    this.dateForm = fb.group({
+      date: ['', Validators.required],
+      fromtime: ['', Validators.required],
+      totime: ['', Validators.required]
+    })
+  }
 
-  // ngOnInit() : void {
-  //   this.route.data
-  //     .subscribe((data: { hero: Hero }) => {
-  //       this.hero = data.hero;
-  //     });
-  // }
-  //
+  ngOnInit() {
+    
+  }
+  
 
   getAllRooms(){
       this.bs.getAllRooms().subscribe(
@@ -44,9 +52,20 @@ export class HomepageComponent implements OnInit {
         error => console.log('all rooms ' + 'error')
       );
   }
-  createRoomList(response){
 
+  isTimeSelected(){
+    var fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
+    var totime = (<HTMLInputElement>document.getElementById("totime")).value;
+    
+    if(fromtime || totime == null){
+      console.log('a');
+      return false;
+    }else{
+      console.log('b');
+      return true;
+    }
   }
+
 
 
   getBookingTimes(){
