@@ -50,20 +50,32 @@ export class MapComponent implements OnInit {
     });
   }
 
-  onClick(event){
+  onClick(event) {
     let target = event.target || event.srcElement || event.currentTarget;
     let idAttr = target.attributes.id;
     let value = idAttr.nodeValue;
-    this.dataService.setRoomID(value);
-    this.openDialog();
+    let valid = true;
+    console.log(value)
+    for (let i in this.nonAvailableRoom) {
+
+      if (this.nonAvailableRoom[i] === value) {
+        valid = false;
+        console.log(i);
+        console.log(value);
+      }else{
+        console.log(i);
+        console.log(value);
+    }
+      }
+    if (valid === true) {
+      console.log(valid)
+      this.dataService.setRoomID(value);
+      this.openDialog();
+    } else {
+       console.log('unavailable room selected');
+    }
   }
 
-
-  getEmailID(){
-    let user = JSON.parse(localStorage.getItem('currentUser'));
-    this.emailID = user['user'];
-
-  }
 
 
   right(){
