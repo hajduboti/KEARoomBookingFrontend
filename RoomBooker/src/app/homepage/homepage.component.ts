@@ -32,17 +32,17 @@ export class HomepageComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private fb: FormBuilder
-    ){
+    ) {
     this.dateForm = fb.group({
       date: ['', Validators.required],
       fromtime: ['', Validators.required],
       totime: ['', Validators.required]
-    })
+    });
   }
 
   ngOnInit() {
-    this.dataService.setdata(null);
- }
+
+  }
 
 
   getAllRooms(){
@@ -55,13 +55,13 @@ export class HomepageComponent implements OnInit {
   }
 
   isTimeSelected(){
-    var fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
-    var totime = (<HTMLInputElement>document.getElementById("totime")).value;
+    const fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
+    const totime = (<HTMLInputElement>document.getElementById("totime")).value;
 
-    if(fromtime || totime == null){
+    if (fromtime || totime == null){
       console.log('a');
       return false;
-    }else{
+    } else {
       console.log('b');
       return true;
     }
@@ -70,13 +70,13 @@ export class HomepageComponent implements OnInit {
 
 
   getBookingTimes(){
-    var val;
-    var fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
-    var totime = (<HTMLInputElement>document.getElementById("totime")).value;
-    var mydate = this.date;
-    var m = new Date(mydate).getMonth() + 1;
-    var workingDate = mydate.getFullYear() + "-" + m + "-" + mydate.getDate();
-    var res = encodeURI("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime);
+    let val;
+    const fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
+    const totime = (<HTMLInputElement>document.getElementById("totime")).value;
+    const mydate = this.date;
+    const m = new Date(mydate).getMonth() + 1;
+    const workingDate = mydate.getFullYear() + "-" + m + "-" + mydate.getDate();
+    const res = encodeURI("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime);
     this.dataService.setDates( workingDate + " " + fromtime, workingDate + " " + totime);
     this.bs.getRooms(res).subscribe(
       response => {

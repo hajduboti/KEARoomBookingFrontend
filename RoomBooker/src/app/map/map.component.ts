@@ -29,15 +29,15 @@ export class MapComponent implements OnInit {
     this.endDate = this.dataService.getEndDate();
     this.nonAvailableRoom = this.dataService.getdata();
     for(let i in this.nonAvailableRoom){
-      var boi = document.getElementById(this.nonAvailableRoom[i]);
+      let boi = document.getElementById(this.nonAvailableRoom[i]);
       boi.style.fill="#cecece";
     }
   }
 
   onClick(event){
-    var target = event.target || event.srcElement || event.currentTarget;
-    var idAttr = target.attributes.id;
-    var value = idAttr.nodeValue;
+    let target = event.target || event.srcElement || event.currentTarget;
+    let idAttr = target.attributes.id;
+    let value = idAttr.nodeValue;
     let user = JSON.parse(localStorage.getItem('currentUser'));
     this.emailID = user['user'];
     this.bookingData= {
@@ -64,14 +64,14 @@ export class MapComponent implements OnInit {
 
 
   right(){
-    var i = document.getElementById("Layer_1");
-    var y = document.getElementById("Layer_2");
+    let i = document.getElementById("Layer_1");
+    let y = document.getElementById("Layer_2");
     i.style.display = 'none';
     y.style.display = 'inline';
   }
   left(){
-    var i = document.getElementById("Layer_1");
-    var y = document.getElementById("Layer_2");
+    let i = document.getElementById("Layer_1");
+    let y = document.getElementById("Layer_2");
     y.style.display = 'none';
     i.style.display = 'inline';
   }
