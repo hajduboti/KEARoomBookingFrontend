@@ -8,6 +8,7 @@ import {MatInputModule} from '@angular/material/input';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -24,6 +25,7 @@ import { MapComponent } from './map/map.component';
 import { AuthGuard } from './auth/auth.guard';
 
 import { DataService } from './data.service';
+import { PopupComponent } from './popup/popup.component';
 
 
 
@@ -37,6 +39,7 @@ import { DataService } from './data.service';
     RegistrationComponent,
     LoginComponent,
     MapComponent,
+    PopupComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,11 +51,15 @@ import { DataService } from './data.service';
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
     AmazingTimePickerModule
+  ],
+  entryComponents: [
+    PopupComponent,
   ],
 
   providers: [MatDatepickerModule, AuthGuard, DataService],

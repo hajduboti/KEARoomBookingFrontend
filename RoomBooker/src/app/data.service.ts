@@ -5,7 +5,7 @@ export class DataService {
   serviceData: [null];
   startDate;
   endDate;
-  
+
 
   getdata() {
     return this.serviceData;
@@ -22,8 +22,15 @@ export class DataService {
   getStartDate(){
     return this.startDate;
   }
-  
+
   getEndDate(){
     return this.endDate;
   }
+  getRoomID() {
+    return this.serviceData;
+  }
+  setRoomID(value) {
+    this.serviceData = value;
+  }
+
 }

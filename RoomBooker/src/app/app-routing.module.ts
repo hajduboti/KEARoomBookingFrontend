@@ -13,7 +13,7 @@ const appRoutes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'booking', component: MapComponent, canActivate: [AuthGuard, DateselectGuard] },
+  { path: 'booking', component: MapComponent, canActivate: [AuthGuard] },
   { path: '**', component: PagenotfoundComponent }
 
 

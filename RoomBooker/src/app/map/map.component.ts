@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
 import { BookingService } from '../booking.service';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {PopupComponent} from '../popup/popup.component';
 
-
+export interface DialogData {
+  animal: string;
+  name: string;
+}
 
 @Component({
   selector: 'app-map',
@@ -17,7 +22,8 @@ export class MapComponent implements OnInit {
   roomID;
   emailID;
 
-  constructor(public dataService: DataService, private bs: BookingService) {
+
+  constructor(public dataService: DataService, private bs: BookingService, public dialog: MatDialog) {
     (<any>window).right = this.right.bind(this);
     (<any>window).left = this.left.bind(this);
 
@@ -34,25 +40,22 @@ export class MapComponent implements OnInit {
     }
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(PopupComponent, {
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
+  }
+
   onClick(event){
     let target = event.target || event.srcElement || event.currentTarget;
     let idAttr = target.attributes.id;
     let value = idAttr.nodeValue;
-    let user = JSON.parse(localStorage.getItem('currentUser'));
-    this.emailID = user['user'];
-    this.bookingData= {
-      "startDate": this.startDate,
-      "endDate": this.endDate,
-      "roomID": value,
-      "emailID": 9
-    }
-    console.log(this.bookingData);
-    this.bs.bookRoom(this.bookingData).subscribe(
-      response => {
-        console.log('yay');
-      },
-      error => console.log('error', error)
-    );
+    this.dataService.setRoomID(value);
+    this.openDialog();
   }
 
 
