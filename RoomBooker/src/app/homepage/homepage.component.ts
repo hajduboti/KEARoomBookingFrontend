@@ -41,8 +41,8 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit() {
-
-  }
+    this.dataService.setdata(null);
+ }
 
 
   getAllRooms(){
