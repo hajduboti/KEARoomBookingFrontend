@@ -4,10 +4,6 @@ import { BookingService } from '../booking.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {PopupComponent} from '../popup/popup.component';
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
 
 @Component({
   selector: 'app-map',
@@ -34,6 +30,7 @@ export class MapComponent implements OnInit {
     this.startDate = this.dataService.getStartDate();
     this.endDate = this.dataService.getEndDate();
     this.nonAvailableRoom = this.dataService.getdata();
+    console.log(this.nonAvailableRoom);
     for(let i in this.nonAvailableRoom){
       let boi = document.getElementById(this.nonAvailableRoom[i]);
       boi.style.fill="#cecece";
@@ -55,20 +52,12 @@ export class MapComponent implements OnInit {
     let idAttr = target.attributes.id;
     let value = idAttr.nodeValue;
     let valid = true;
-    console.log(value)
     for (let i in this.nonAvailableRoom) {
-
       if (this.nonAvailableRoom[i] === value) {
         valid = false;
-        console.log(i);
-        console.log(value);
-      }else{
-        console.log(i);
-        console.log(value);
-    }
       }
+    }
     if (valid === true) {
-      console.log(valid)
       this.dataService.setRoomID(value);
       this.openDialog();
     } else {
