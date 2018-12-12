@@ -34,14 +34,17 @@ export class MapComponent implements OnInit {
     }
   }
 
-  bookRoom(){
+  onClick(event){
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr = target.attributes.id;
+    var value = idAttr.nodeValue;
     let user = JSON.parse(localStorage.getItem('currentUser'));
     this.emailID = user['user'];
     this.bookingData= {
       "startDate": this.startDate,
       "endDate": this.endDate,
-      "roomID": "A210",
-      "emailID": 16
+      "roomID": value,
+      "emailID": 9
     }
     console.log(this.bookingData);
     this.bs.bookRoom(this.bookingData).subscribe(
@@ -75,10 +78,5 @@ export class MapComponent implements OnInit {
   myFunction(){
     console.log('test');
 }
-onClick(event) {
-  var target = event.target || event.srcElement || event.currentTarget;
-  var idAttr = target.attributes.id;
-  var value = idAttr.nodeValue;
-  console.log(value);
-}
+
 }
