@@ -23,18 +23,14 @@ export class HomepageComponent implements OnInit {
   constructor(
     private atp: AmazingTimePickerService,
     public bs:BookingService,
-    public dataService: DataService
+    public dataService: DataService,
     private route: ActivatedRoute,
     private router: Router
   ) { }
 
-  // ngOnInit() : void {
-  //   this.route.data
-  //     .subscribe((data: { hero: Hero }) => {
-  //       this.hero = data.hero;
-  //     });
-  // }
-  //
+  ngOnInit() {
+  }
+
 
   getAllRooms(){
       this.bs.getAllRooms().subscribe(

@@ -39,5 +39,12 @@ export class MapComponent implements OnInit {
     i.style.display = 'inline';
   }
   myFunction(){
-    }
+    console.log('test');
+}
+onClick(event) {
+  var target = event.target || event.srcElement || event.currentTarget;
+  var idAttr = target.attributes.id;
+  var value = idAttr.nodeValue;
+  console.log(value);
+}
 }
