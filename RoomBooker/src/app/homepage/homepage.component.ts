@@ -17,7 +17,6 @@ import { from } from 'rxjs';
 export class HomepageComponent implements OnInit {
   minDate = new Date();
   maxDate = new Date(Date.now()+ 24192e5);
-  date = new Date();
   dateForm: FormGroup;
   fromtime = '';
   totime ='';
@@ -71,12 +70,12 @@ export class HomepageComponent implements OnInit {
 
   getBookingTimes(){
     let val;
-    const fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
-    const totime = (<HTMLInputElement>document.getElementById("totime")).value;
-    const mydate = this.date;
-    const m = new Date(mydate).getMonth() + 1;
-    const workingDate = mydate.getFullYear() + "-" + m + "-" + mydate.getDate();
-    const res = encodeURI("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime);
+    let fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
+    let totime = (<HTMLInputElement>document.getElementById("totime")).value;
+    let mydate =  new Date((<HTMLInputElement>document.getElementById("date")).value);
+    let m = new Date(mydate).getMonth() + 1;
+    let workingDate = mydate.getFullYear() + "-" + m + "-" + mydate.getDate();
+    let res = encodeURI("startDate=" + workingDate + " " + fromtime + "&endDate=" + workingDate + " " + totime);
     this.dataService.setDates( workingDate + " " + fromtime, workingDate + " " + totime);
     this.bs.getRooms(res).subscribe(
       response => {

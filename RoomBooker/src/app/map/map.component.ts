@@ -44,7 +44,7 @@ export class MapComponent implements OnInit {
       "startDate": this.startDate,
       "endDate": this.endDate,
       "roomID": value,
-      "emailID": 9
+      "emailID": this.emailID
     }
     console.log(this.bookingData);
     this.bs.bookRoom(this.bookingData).subscribe(
