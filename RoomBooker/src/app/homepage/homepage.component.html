@@ -2,18 +2,21 @@
   <h1>Welcome to KEA's room booking system</h1>
 
 </div>
+
 <div class="titleContainer">
+  <form [formGroup]="dateForm">
   <mat-form-field class="example-full-width">
-    <input matInput [(ngModel)]="date" [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date">
+    <input formControlName="date" matInput [min]="minDate" [max]="maxDate" [matDatepicker]="picker" placeholder="Choose a date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-    <input id="fromtime"  start="08:00" end="22:00" value="" atp-time-picker matInput placeholder="From"/>
+    <input formControlName="fromtime" id="fromtime"  start="08:00" end="22:00" value="" atp-time-picker matInput placeholder="From"/>
   </mat-form-field>
   <mat-form-field class="example-full-width">
-   <input id="totime" matInput  start="08:00" end="22:00" atp-time-picker value="" placeholder="To"/>
+   <input formControlName="totime" id="totime" matInput  start="08:00" end="22:00" atp-time-picker value="" placeholder="To"/>
   </mat-form-field>
+</form>
 </div>
 
 
@@ -26,7 +29,7 @@
     <mat-card-subtitle>Guldbergsgade 29N, DK-2200 Copenhagen N</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
-    <button mat-button (click)="getBookingTimes();"  routerLinkActive="active">Book</button>
+    <button mat-button  (click)="getBookingTimes();" [disabled]="dateForm.invalid" routerLinkActive="active">Book</button>
   </mat-card-actions>
 </mat-card>
 </div>
@@ -39,7 +42,7 @@
     <mat-card-subtitle>Lygten 16, DK-2400 Copenhagen NV</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
-    <button mat-button (click)="getBookingTimes();"  routerLink="booking" routerLinkActive="active">Book</button>
+    <button mat-button disabled routerLinkActive="active">Book</button>
   </mat-card-actions>
 </mat-card>
 </div>
@@ -52,7 +55,7 @@
     <mat-card-subtitle>Lygten 37, DK-2400 Copenhagen NV</mat-card-subtitle>
   </mat-card-header>
   <mat-card-actions>
-    <button mat-button (click)="getBookingTimes();"  routerLink="booking" routerLinkActive="active">Book</button>
+    <button mat-button disabled routerLinkActive="active">Book</button>
   </mat-card-actions>
 </mat-card>
 </div>

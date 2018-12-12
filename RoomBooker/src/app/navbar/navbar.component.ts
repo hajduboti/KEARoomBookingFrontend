@@ -12,7 +12,7 @@ export class NavbarComponent implements OnInit {
   
   authenticated:boolean;
   constructor(private as:AuthService) {
-    
+  
    }
   ngOnInit() {
     this.as.currentUser.subscribe(userStatus => this.authenticated = userStatus)
