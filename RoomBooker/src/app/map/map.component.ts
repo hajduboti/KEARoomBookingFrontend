@@ -34,10 +34,14 @@ export class MapComponent implements OnInit {
     this.startDate = this.dataService.getStartDate();
     this.endDate = this.dataService.getEndDate();
     this.nonAvailableRoom = this.dataService.getdata();
-    for(let i in this.nonAvailableRoom){
-      let boi = document.getElementById(this.nonAvailableRoom[i]);
-      boi.style.fill="#cecece";
-    }
+    // for(let i in this.nonAvailableRoom){
+    //   let boi = document.getElementById(this.nonAvailableRoom[i]);
+    //   boi.style.fill="#cecece";
+    // }
+  }
+
+  isRoomBooked(){
+    
   }
 
   openDialog(): void {

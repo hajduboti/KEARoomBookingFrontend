@@ -19,18 +19,29 @@ export interface PopupData {
   styleUrls: ['./popup.component.css']
 })
 export class PopupComponent   {
+
   bookingData;
-  startDate;
+  startDate: string;
   endDate;
   roomID;
   emailID;
+  date;
+  fromtime;
+  totime;
 
   constructor(private dataService: DataService, private bs: BookingService, private dialogRef: MatDialogRef<PopupComponent>) {
+ 
     this.startDate = this.dataService.getStartDate();
     this.endDate = this.dataService.getEndDate();
     this.roomID = this.dataService.getRoomID();
     const user = JSON.parse(localStorage.getItem('currentUser'));
     this.emailID = user['user'];
+    let splitStartDate =(this.startDate).split(" ");
+    this.date = splitStartDate[0];
+    this.fromtime = splitStartDate[1];
+    let splitEndDate =(this.endDate).split(" ");
+    this.totime = splitEndDate[1];
+
    }
 
   onBookClick(): void {
@@ -40,6 +51,7 @@ export class PopupComponent   {
       "roomID": this.roomID,
       "emailID": this.emailID,
     };
+    
     this.bs.bookRoom(this.bookingData).subscribe(
       response => {
         console.log('yay');
@@ -50,6 +62,7 @@ export class PopupComponent   {
   }
 
   onNoClick(): void {
+    
     this.dialogRef.close();
   }
 
