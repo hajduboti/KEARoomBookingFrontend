@@ -1,7 +1,7 @@
 import {Component, Inject} from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { DataService } from '../data.service';
-import { BookingService } from '../booking.service';
+import { DataService } from '../services/data.service';
+import { BookingService } from '../services/booking.service';
 
 
 
@@ -30,7 +30,7 @@ export class PopupComponent   {
   totime;
 
   constructor(private dataService: DataService, private bs: BookingService, private dialogRef: MatDialogRef<PopupComponent>) {
- 
+
     this.startDate = this.dataService.getStartDate();
     this.endDate = this.dataService.getEndDate();
     this.roomID = this.dataService.getRoomID();
@@ -51,7 +51,7 @@ export class PopupComponent   {
       "roomID": this.roomID,
       "emailID": this.emailID,
     };
-    
+
     this.bs.bookRoom(this.bookingData).subscribe(
       response => {
         console.log('yay');
@@ -62,7 +62,7 @@ export class PopupComponent   {
   }
 
   onNoClick(): void {
-    
+
     this.dialogRef.close();
   }
 

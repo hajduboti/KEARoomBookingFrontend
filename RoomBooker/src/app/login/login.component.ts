@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { RegistrationService } from '../registration.service';
+import { RegistrationService } from '../services/registration.service';
 import { Router } from '@angular/router';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { AuthService } from '../auth/auth.service';
@@ -13,7 +13,7 @@ import { AuthService } from '../auth/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  userStatus:boolean;
+  userStatus: boolean;
   user;
   loginForm: FormGroup;
   email = '';
@@ -24,34 +24,34 @@ export class LoginComponent implements OnInit {
     this.loginForm = fb.group({
     email: ['', Validators.compose([Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@stud.kea.dk')])],
     password: ['', Validators.required]
-  });}
+  }); }
 
   ngOnInit() {
-    this.as.currentUser.subscribe(userStatus => this.userStatus = userStatus)
+    this.as.currentUser.subscribe(userStatus => this.userStatus = userStatus); // why?
   }
 
-  logIn(){
-    this.user= {
-      "email":this.loginForm.controls["email"].value,
-      "password": this.loginForm.controls["password"].value,
-  }
-    console.log(this.user);
+  logIn() {
+    this.user = {
+      'email': this.loginForm.controls['email'].value,
+      'password': this.loginForm.controls['password'].value,
+  };
     this.rs.logInUser(this.user).subscribe(
       response => {
         localStorage.setItem('currentUser', JSON.stringify(response));
-        let status = this.isAuthenticated();
+        // let status = this.isAuthenticated();
+        const status = this.as.isAuthenticated();
         this.as.changeLoggedStatus(status);
         this.router.navigate(['/']);
       },
-      error => console.log('error')
+      error => console.log('error') // maybe also popup with wrong credentials?
     );
   }
 
-  public isAuthenticated(){
-    if (localStorage.getItem('currentUser') == null){
-      return false;
-    }else{
-      return true;
-    }
-  }
+  // public isAuthenticated(){
+  //   if (localStorage.getItem('currentUser') == null){
+  //     return false;
+  //   }else{
+  //     return true;
+  //   }
+  // }
 }

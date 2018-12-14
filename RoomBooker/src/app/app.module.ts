@@ -1,68 +1,77 @@
-import { BrowserModule } from '@angular/platform-browser';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatMenuModule} from '@angular/material/menu';
-import {MatToolbarModule} from '@angular/material/toolbar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatCardModule} from '@angular/material/card';
-import {MatInputModule} from '@angular/material/input';
 import { AmazingTimePickerModule } from 'amazing-time-picker';
-import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/';
-import {MatDialogModule} from '@angular/material/dialog';
-
-import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-
-import { HomepageComponent } from './homepage/homepage.component';
-import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
-import { NavbarComponent } from './navbar/navbar.component';
-import { RegistrationComponent } from './registration/registration.component';
-import { LoginComponent } from './login/login.component';
-import { MapComponent } from './map/map.component';
 import { AuthGuard } from './auth/auth.guard';
 
-import { DataService } from './data.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserModule } from '@angular/platform-browser';
+
+import { DataService } from './services/data.service';
+
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { HomepageComponent } from './homepage/homepage.component';
+import { HttpClientModule } from '@angular/common/http';
+
+import { LoginComponent } from './login/login.component';
+
+import { MapComponent } from './map/map.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatNativeDateModule } from '@angular/material/';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+import { NavbarComponent } from './navbar/navbar.component';
+import { NgModule } from '@angular/core';
+
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PopupComponent } from './popup/popup.component';
 
+import { RegistrationComponent } from './registration/registration.component';
 
 
-
+// ngModule decorator
 @NgModule({
-  declarations: [
+  declarations: [ // holds the components
     AppComponent,
     HomepageComponent,
-    PagenotfoundComponent,
-    NavbarComponent,
-    RegistrationComponent,
     LoginComponent,
     MapComponent,
+    NavbarComponent,
+    PagenotfoundComponent,
     PopupComponent,
+    RegistrationComponent,
   ],
-  imports: [
-    BrowserModule,
+  imports: [ // holds the modules
+    AmazingTimePickerModule,
+    AppRoutingModule,
     BrowserAnimationsModule,
-    MatToolbarModule,
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
     MatButtonModule,
     MatCardModule,
+    MatDatepickerModule,
+    MatDialogModule,
     MatInputModule,
     MatMenuModule,
-    MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule,
-    AppRoutingModule,
-    FormsModule,
+    MatToolbarModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    AmazingTimePickerModule
   ],
   entryComponents: [
     PopupComponent,
   ],
 
-  providers: [MatDatepickerModule, AuthGuard, DataService],
-  bootstrap: [AppComponent]
+  providers: [ // holds the services
+    AuthGuard,
+    DataService,
+    MatDatepickerModule,
+            ],
+  bootstrap: [AppComponent] // specipies compontets to load first
 })
 export class AppModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../data.service';
-import { BookingService } from '../booking.service';
+import { DataService } from '../services/data.service';
+import { BookingService } from '../services/booking.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
 import {PopupComponent} from '../popup/popup.component';
 

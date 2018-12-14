@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AmazingTimePickerService } from 'amazing-time-picker';
-import { BookingService } from '../booking.service';
-import { DataService } from '../data.service';
+import { BookingService } from '../services/booking.service';
+import { DataService } from '../services/data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { from } from 'rxjs';
 
@@ -44,14 +44,14 @@ export class HomepageComponent implements OnInit {
   }
 
 
-  getAllRooms(){
-      this.bs.getAllRooms().subscribe(
-        response => {
-          console.log('all rooms ' + response);
-        },
-        error => console.log('all rooms ' + 'error')
-      );
-  }
+  // getAllRooms(){
+  //     this.bs.getAllRooms().subscribe(
+  //       response => {
+  //         console.log('all rooms ' + response);
+  //       },
+  //       error => console.log('all rooms ' + 'error')
+  //     );
+  // }
 
   isTimeSelected(){
     const fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
@@ -83,7 +83,6 @@ export class HomepageComponent implements OnInit {
           this.nonAvailableRoom.push(val.roomID)
         }
         this.dataService.setdata(this.nonAvailableRoom);
-        // this.dataService.setDates(workingDate + " " + fromtime, workingDate + " " + totime);
       },
       error => console.log('error')
     );

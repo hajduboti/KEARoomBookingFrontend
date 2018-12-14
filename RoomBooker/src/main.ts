@@ -1,3 +1,5 @@
+// this is the file that start our angular app
+
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 

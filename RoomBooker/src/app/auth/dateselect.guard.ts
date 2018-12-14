@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { DataService } from '../data.service';
+import { DataService } from '../services/data.service';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +18,5 @@ export class DateselectGuard implements CanActivate {
       // not logged in so redirect to login page with the return url
       this.router.navigate([''], { queryParams: { returnUrl: state.url }});
     }
-    
+
 }
