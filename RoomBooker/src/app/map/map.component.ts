@@ -20,8 +20,8 @@ export class MapComponent implements OnInit {
 
 
   constructor(public dataService: DataService, private bs: BookingService, public dialog: MatDialog) {
-    (<any>window).right = this.right.bind(this);
-    (<any>window).left = this.left.bind(this);
+    // (<any>window).right = this.right.bind(this);
+    // (<any>window).left = this.left.bind(this);
 
   }
 
@@ -79,8 +79,5 @@ export class MapComponent implements OnInit {
     y.style.display = 'none';
     i.style.display = 'inline';
   }
-  myFunction(){
-    console.log('test');
-}
 
 }

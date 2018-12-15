@@ -10,15 +10,15 @@ import { LoginComponent } from '../login/login.component';
 export class NavbarComponent implements OnInit {
 
 
-  authenticated:boolean;
-  constructor(private as:AuthService) {
+  authenticated: boolean;
+  constructor(private as: AuthService) {
 
    }
   ngOnInit() {
     this.as.currentUser.subscribe(userStatus => this.authenticated = userStatus)
  }
 
- logOut(){
+ logOut() {
   localStorage.clear();
   let status = this.as.isAuthenticated();
   this.as.changeLoggedStatus(status);

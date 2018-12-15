@@ -2,6 +2,7 @@ import { BookingService } from '../services/booking.service';
 import { Component, Inject } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
+import { Router } from '@angular/router';
 
 
 
@@ -28,8 +29,10 @@ export class PopupComponent   {
   date;
   fromtime;
   totime;
+  show: Boolean = true;
 
-  constructor(private dataService: DataService, private bs: BookingService, private dialogRef: MatDialogRef<PopupComponent>) {
+
+  constructor(private dataService: DataService, private bs: BookingService, private dialogRef: MatDialogRef<PopupComponent>, private router: Router) {
 
     this.startDate = this.dataService.getStartDate();
     this.endDate = this.dataService.getEndDate();
@@ -58,12 +61,17 @@ export class PopupComponent   {
       },
       error => console.log('error', error)
     );
-    this.dialogRef.close();
+    this.show = false;
+    // this.dialogRef.close();
   }
 
   onNoClick(): void {
-
     this.dialogRef.close();
+  }
+
+  redirectHomepage() {
+    this.dialogRef.close();
+    this.router.navigate(['/']);
   }
 
 }

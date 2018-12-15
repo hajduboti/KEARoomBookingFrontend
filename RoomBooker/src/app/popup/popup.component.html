@@ -1,10 +1,25 @@
+<div *ngIf="show">
 <h1 mat-dialog-title>Confirm booking?</h1>
 <p>Your room: {{this.roomID}}</p>
 <p>Date of booking: {{this.date}}</p>
 <p>From: {{this.fromtime}}</p>
 <p>To: {{this.totime}}</p>
-  
-<div mat-dialog-actions>
+
+<div  mat-dialog-actions>
   <button mat-button (click)="onNoClick()">No Thanks</button>
   <button mat-button (click)="onBookClick()" cdkFocusInitial>Yes</button>
+</div>
+</div>
+
+<div *ngIf="!show">
+    <h1 mat-dialog-title>Booking is confirmed</h1>
+    <h1 mat-dialog-title>A confirmation email has been sent to your email</h1>
+    <p>Your room: {{this.roomID}}</p>
+    <p>Date of booking: {{this.date}}</p>
+    <p>From: {{this.fromtime}}</p>
+    <p>To: {{this.totime}}</p>
+<div  mat-dialog-actions>
+  <button mat-button (click)="redirectHomepage()" cdkFocusInitial>Homepage</button>
+  <button mat-button (click)="redirectHomepage()" cdkFocusInitial disabled=true>My Bookings</button>
+</div>
 </div>
