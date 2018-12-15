@@ -40,7 +40,6 @@ export class RegistrationComponent implements OnInit {
       'first_name': this.registerForm.controls['firstName'].value,
       'last_name': this.registerForm.controls['lastName'].value,
       };
-    console.log(this.register);
     this.rs.registerUser(this.register).subscribe(
       response => {
         this.router.navigate(['../login']);

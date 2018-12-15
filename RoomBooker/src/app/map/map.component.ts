@@ -30,7 +30,6 @@ export class MapComponent implements OnInit {
     this.startDate = this.dataService.getStartDate();
     this.endDate = this.dataService.getEndDate();
     this.nonAvailableRoom = this.dataService.getdata();
-    console.log(this.nonAvailableRoom);
     for(let i in this.nonAvailableRoom){
       let boi = document.getElementById(this.nonAvailableRoom[i]);
       boi.style.fill="#cecece";
@@ -43,7 +42,6 @@ export class MapComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
     });
   }
 
@@ -60,8 +58,6 @@ export class MapComponent implements OnInit {
     if (valid === true) {
       this.dataService.setRoomID(value);
       this.openDialog();
-    } else {
-       console.log('unavailable room selected');
     }
   }
 

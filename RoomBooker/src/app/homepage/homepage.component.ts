@@ -49,10 +49,8 @@ export class HomepageComponent implements OnInit {
     const totime = (<HTMLInputElement>document.getElementById("totime")).value;
 
     if (fromtime || totime == null){
-      console.log('a');
       return false;
     } else {
-      console.log('b');
       return true;
     }
   }

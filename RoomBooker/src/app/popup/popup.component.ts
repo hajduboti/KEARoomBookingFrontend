@@ -54,10 +54,8 @@ export class PopupComponent   {
       "roomID": this.roomID,
       "emailID": this.emailID,
     };
-    console.log(this.bookingData)
     this.bs.bookRoom(this.bookingData).subscribe(
       response => {
-        console.log('yay');
       },
       error => console.log('error', error)
     );
