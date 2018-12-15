@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth/auth.service';
+import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
 
 @Component({
@@ -9,10 +9,10 @@ import { LoginComponent } from '../login/login.component';
 })
 export class NavbarComponent implements OnInit {
 
-  
+
   authenticated:boolean;
   constructor(private as:AuthService) {
-  
+
    }
   ngOnInit() {
     this.as.currentUser.subscribe(userStatus => this.authenticated = userStatus)
@@ -20,17 +20,9 @@ export class NavbarComponent implements OnInit {
 
  logOut(){
   localStorage.clear();
-  let status = this.isAuthenticated();
+  let status = this.as.isAuthenticated();
   this.as.changeLoggedStatus(status);
 }
-public isAuthenticated(){
-  if (localStorage.getItem('currentUser') == null){
-    return false;
-  }else{
-    return true;
-  }
-}
-  
 
 }
 

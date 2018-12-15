@@ -1,7 +1,7 @@
+import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
 
 const regUrl = 'http://localhost:8000/registration';
 const loginUrl = 'http://127.0.0.1:8000/login/';
@@ -14,7 +14,7 @@ export class RegistrationService {
   // http options used for making API calls
  private httpOptions: any;
 
- // the actual JWT token
+ // the actual token
  public token: string;
 
  // error messages received from the login attempt

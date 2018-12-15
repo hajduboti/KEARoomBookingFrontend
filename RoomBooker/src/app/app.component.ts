@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
 import { AppRoutingModule } from './/app-routing.module';
+import { Component } from '@angular/core';
 import { NavbarComponent } from './navbar/navbar.component';
 
 @Component({

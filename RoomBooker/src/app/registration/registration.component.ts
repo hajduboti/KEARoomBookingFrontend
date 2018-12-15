@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from '@angular/forms';
-import { RegistrationService } from '../services/registration.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { last } from 'rxjs/operators';
+import { RegistrationService } from '../services/registration.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,14 +14,13 @@ export class RegistrationComponent implements OnInit {
 
   register;
   registerForm: FormGroup;
-  submitted = false;  // do we use it?
   firstName = '';
   lastName = '';
   email = '';
   username;
   password = '';
 
-  constructor(private fb: FormBuilder, private rs: RegistrationService) {
+  constructor(private fb: FormBuilder, private rs: RegistrationService, private router: Router) {
     this.registerForm = fb.group({
     firstName: ['', Validators.required],
     lastName: ['', Validators.required],
@@ -43,8 +43,7 @@ export class RegistrationComponent implements OnInit {
     console.log(this.register);
     this.rs.registerUser(this.register).subscribe(
       response => {
-        console.log('yay');
-        // than redirect to login?
+        this.router.navigate(['../login']);
       },
       error => console.log('error', error)
     );

@@ -1,8 +1,8 @@
+import { catchError, map, tap } from 'rxjs/operators';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
-import { RequestOptions } from '@angular/http';
 import { Observable, of } from 'rxjs';
-import { map, catchError, tap } from 'rxjs/operators';
+import { RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 
 const baseUrl = 'http://localhost:8000';
@@ -28,6 +28,7 @@ export class BookingService {
   }
 
   private extractData(res: Response) {
+
     return res || { };
   }
 
@@ -53,23 +54,6 @@ export class BookingService {
     return this.http.get(baseUrl + '/booking?' + timeframe, httpOptions).pipe(
       map(this.extractData));
   }
-
-  // getAllRooms(): Observable<any> { // useless
-  //   token = JSON.parse(localStorage.getItem('currentUser'));
-  //   if (token == null) {
-  //     this.router.navigate(['login']);
-
-  //   } else {
-  //     tokenKey = token['key'];
-  //   }
-  //   return this.http.get(baseUrl + '/booking?', this.httpOptions);
-  // }
-
-  // getCampus(): Observable<any> {
-  //   return this.http.get(baseUrl + "/campus/room/details").pipe(
-  //     map(this.extractData));
-
-  //   }
 
 
 

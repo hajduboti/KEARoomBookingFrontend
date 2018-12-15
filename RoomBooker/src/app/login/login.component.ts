@@ -1,9 +1,9 @@
+import { AuthService } from '../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NavbarComponent } from '../navbar/navbar.component';
 import { RegistrationService } from '../services/registration.service';
 import { Router } from '@angular/router';
-import { NavbarComponent } from '../navbar/navbar.component';
-import { AuthService } from '../auth/auth.service';
 
 
 @Component({
@@ -47,11 +47,4 @@ export class LoginComponent implements OnInit {
     );
   }
 
-  // public isAuthenticated(){
-  //   if (localStorage.getItem('currentUser') == null){
-  //     return false;
-  //   }else{
-  //     return true;
-  //   }
-  // }
 }

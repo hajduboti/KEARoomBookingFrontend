@@ -1,7 +1,7 @@
-import {Component, Inject} from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
-import { DataService } from '../services/data.service';
 import { BookingService } from '../services/booking.service';
+import { Component, Inject } from '@angular/core';
+import { DataService } from '../services/data.service';
+import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material';
 
 
 
@@ -51,7 +51,7 @@ export class PopupComponent   {
       "roomID": this.roomID,
       "emailID": this.emailID,
     };
-
+    console.log(this.bookingData)
     this.bs.bookRoom(this.bookingData).subscribe(
       response => {
         console.log('yay');

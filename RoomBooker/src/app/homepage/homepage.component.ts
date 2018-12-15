@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 import { AmazingTimePickerService } from 'amazing-time-picker';
 import { BookingService } from '../services/booking.service';
+import { Component, OnInit } from '@angular/core';
 import { DataService } from '../services/data.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { from } from 'rxjs';
@@ -43,15 +43,6 @@ export class HomepageComponent implements OnInit {
 
   }
 
-
-  // getAllRooms(){
-  //     this.bs.getAllRooms().subscribe(
-  //       response => {
-  //         console.log('all rooms ' + response);
-  //       },
-  //       error => console.log('all rooms ' + 'error')
-  //     );
-  // }
 
   isTimeSelected(){
     const fromtime = (<HTMLInputElement>document.getElementById("fromtime")).value;
