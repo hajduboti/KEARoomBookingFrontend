@@ -1,6 +1,7 @@
 import { AuthService } from '../auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { LoginComponent } from '../login/login.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -11,7 +12,7 @@ export class NavbarComponent implements OnInit {
 
 
   authenticated: boolean;
-  constructor(private as: AuthService) {
+  constructor(private as: AuthService, private router:Router) {
 
    }
   ngOnInit() {
@@ -22,6 +23,7 @@ export class NavbarComponent implements OnInit {
   localStorage.clear();
   let status = this.as.isAuthenticated();
   this.as.changeLoggedStatus(status);
+  this.router.navigate(['/login']);
 }
 
 }
