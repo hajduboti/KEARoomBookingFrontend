@@ -8,7 +8,6 @@ import { from } from 'rxjs';
 
 
 
-
 @Component({
   selector: 'app-homepage',
   templateUrl: './homepage.component.html',
@@ -19,8 +18,8 @@ export class HomepageComponent implements OnInit {
   maxDate = new Date(Date.now()+ 24192e5);
   dateForm: FormGroup;
   fromtime = '';
-  totime ='';
-  campuses:any = [];
+  totime = '';
+  campuses: any = [];
   nonAvailableRoom = [];
 
 

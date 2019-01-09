@@ -37,9 +37,7 @@ export class MapComponent implements OnInit {
   }
 
   openDialog(): void {
-    const dialogRef = this.dialog.open(PopupComponent, {
-
-    });
+    const dialogRef = this.dialog.open(PopupComponent, { });
 
     dialogRef.afterClosed().subscribe(result => {
     });
@@ -63,17 +61,17 @@ export class MapComponent implements OnInit {
 
 
 
-  right(){
-    let i = document.getElementById("Layer_1");
-    let y = document.getElementById("Layer_2");
-    i.style.display = 'none';
-    y.style.display = 'inline';
-  }
-  left(){
-    let i = document.getElementById("Layer_1");
-    let y = document.getElementById("Layer_2");
-    y.style.display = 'none';
-    i.style.display = 'inline';
-  }
+  // right(){
+  //   let i = document.getElementById("Layer_1");
+  //   let y = document.getElementById("Layer_2");
+  //   i.style.display = 'none';
+  //   y.style.display = 'inline';
+  // }
+  // left(){
+  //   let i = document.getElementById("Layer_1");
+  //   let y = document.getElementById("Layer_2");
+  //   y.style.display = 'none';
+  //   i.style.display = 'inline';
+  // }
 
 }

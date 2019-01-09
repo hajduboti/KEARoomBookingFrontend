@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 
-const baseUrl = 'http://18.185.138.35:8000';
+const baseUrl = 'http://localhost:8000';
 let token;
 let tokenKey;
 let httpOptions = {
@@ -51,7 +51,20 @@ export class BookingService {
         })
       };
     }
+
     return this.http.get(baseUrl + '/booking?' + timeframe, httpOptions).pipe(
+      map(this.extractData));
+  }
+
+
+
+  getUserBookings(id): Observable<any>  {
+    return this.http.get(baseUrl + '/booking?emailID=' + id).pipe(
+      map(this.extractData));
+  }
+
+  deleteBooking(bookingID): Observable<any>  {
+    return this.http.delete(baseUrl + '/booking/cancel?bookingID=' + bookingID).pipe(
       map(this.extractData));
   }
 

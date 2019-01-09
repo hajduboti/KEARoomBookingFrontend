@@ -24,6 +24,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatNativeDateModule } from '@angular/material/';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import {MatTableModule} from '@angular/material/table';
+
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgModule } from '@angular/core';
@@ -32,6 +34,7 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { PopupComponent } from './popup/popup.component';
 
 import { RegistrationComponent } from './registration/registration.component';
+import { UserpageComponent } from './userpage/userpage.component';
 
 
 // ngModule decorator
@@ -45,6 +48,7 @@ import { RegistrationComponent } from './registration/registration.component';
     PagenotfoundComponent,
     PopupComponent,
     RegistrationComponent,
+    UserpageComponent,
   ],
   imports: [ // holds the modules
     AmazingTimePickerModule,
@@ -61,6 +65,7 @@ import { RegistrationComponent } from './registration/registration.component';
     MatMenuModule,
     MatNativeDateModule,
     MatToolbarModule,
+    MatTableModule,
     ReactiveFormsModule,
   ],
   entryComponents: [

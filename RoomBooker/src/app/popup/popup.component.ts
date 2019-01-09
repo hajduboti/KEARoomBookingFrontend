@@ -39,20 +39,20 @@ export class PopupComponent   {
     this.roomID = this.dataService.getRoomID();
     const user = JSON.parse(localStorage.getItem('currentUser'));
     this.emailID = user['user'];
-    let splitStartDate =(this.startDate).split(" ");
+    let splitStartDate =(this.startDate).split(' ');
     this.date = splitStartDate[0];
     this.fromtime = splitStartDate[1];
-    let splitEndDate =(this.endDate).split(" ");
+    let splitEndDate =(this.endDate).split(' ');
     this.totime = splitEndDate[1];
 
    }
 
   onBookClick(): void {
     this.bookingData = {
-      "startDate": this.startDate,
-      "endDate": this.endDate,
-      "roomID": this.roomID,
-      "emailID": this.emailID,
+      'startDate': this.startDate,
+      'endDate': this.endDate,
+      'roomID': this.roomID,
+      'emailID': this.emailID,
     };
     this.bs.bookRoom(this.bookingData).subscribe(
       response => {
@@ -70,6 +70,11 @@ export class PopupComponent   {
   redirectHomepage() {
     this.dialogRef.close();
     this.router.navigate(['/']);
+  }
+
+  redirectMybookings() {
+    this.dialogRef.close();
+    this.router.navigate(['./mybookings']);
   }
 
 }
