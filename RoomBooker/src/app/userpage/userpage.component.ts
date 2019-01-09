@@ -9,10 +9,7 @@ export interface PeriodicElement {
   to: string;
 }
 
-const DATA = [
-
-
-];
+const DATA = [];
 
 
 @Component({
@@ -71,5 +68,6 @@ export class UserpageComponent implements OnInit {
       error => console.log('error') // maybe also popup with wrong credentials?
     );
   }
+
 
 }
