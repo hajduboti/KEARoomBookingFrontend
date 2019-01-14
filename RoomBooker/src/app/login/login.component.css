@@ -1,5 +1,9 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
 
+.error-message{
+  padding-top: 15px;
+}
+
 .login-page {
   width: 360px;
   padding: 8% 0 0;
@@ -49,6 +53,14 @@
   color: #b3b3b3;
   font-size: 12px;
 }
+
+.form .message-err {
+  text-align: left;
+  font-family: "Roboto", sans-serif;
+  color: #EF3B3A;
+  font-size: 12px;
+}
+
 .form .message a {
   font-family: "Roboto", sans-serif;
   color: #3f51b5;
