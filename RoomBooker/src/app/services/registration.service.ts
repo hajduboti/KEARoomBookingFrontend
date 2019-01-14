@@ -3,8 +3,8 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-const regUrl = 'http://localhost:8000/registration';
-const loginUrl = 'http://localhost:8000/login/';
+const regUrl = 'https://3.120.27.147/registration';
+const loginUrl = 'https://3.120.27.147/login/';
 
 @Injectable({ // decorator that allow depencencies injections
   providedIn: 'root'

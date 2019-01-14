@@ -5,7 +5,7 @@ import { Observable, of } from 'rxjs';
 import { RequestOptions } from '@angular/http';
 import { Router } from '@angular/router';
 
-const baseUrl = 'http://localhost:8000';
+const baseUrl = 'https://3.120.27.147';
 let token;
 let tokenKey;
 let httpOptions = {
