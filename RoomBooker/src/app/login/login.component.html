@@ -1,6 +1,7 @@
 <div class="login-page">
   <div class="form">
     <form [formGroup]="loginForm" class="login-form">
+      <p id='error-message' class="message-err" hidden> Wrong credentials, please try again </p>
       <div class="inputField">
           <input formControlName="email" type="email" name="email" id="email" placeholder="E-mail" >
           <mat-error class="error-message" *ngIf="!loginForm.controls['email'].valid && loginForm.controls['email'].touched">KEA email is required</mat-error>
@@ -11,6 +12,7 @@
       </div>
       <div class="inputField">
         <button class="btn" [disabled]="loginForm.invalid" (click)="logIn()">Log In</button>
+      
       </div>
       <p class="message">Not registered? <a routerLink="../register" >Create an account</a></p>
     </form>

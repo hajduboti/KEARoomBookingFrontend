@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
         this.as.changeLoggedStatus(status);
         this.router.navigate(['/']);
       },
-      error => console.log('error') // maybe also popup with wrong credentials?
+      error => document.getElementById('error-message').hidden= false  // maybe also popup with wrong credentials?
     );
   }
 
