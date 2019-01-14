@@ -6,7 +6,7 @@
       <mat-error class="error-message" *ngIf="!registerForm.controls['email'].valid && registerForm.controls['email'].touched">KEA email is required</mat-error>
   </div>
   <div class="inputField">
-      <input formControlName="password" type="password" name="password" id="password" placeholder="Password">
+      <input formControlName="password" type="password" name="password" id="password" placeholder="Password" minlength="8">
       <mat-error class="error-message" *ngIf="!registerForm.controls['password'].valid && registerForm.controls['password'].touched">Password is required</mat-error>
   </div>
 

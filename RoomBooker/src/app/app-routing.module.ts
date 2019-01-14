@@ -13,7 +13,7 @@ import { UserpageComponent } from './userpage/userpage.component';
 const appRoutes: Routes = [
   { path: '', component: HomepageComponent, canActivate: [AuthGuard] },
   { path: 'register', component: RegistrationComponent },
-  { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent},
   { path: 'mybookings', component: UserpageComponent },
   { path: 'booking', component: MapComponent, canActivate: [AuthGuard, DateselectGuard] },
   { path: '**', component: PagenotfoundComponent },
