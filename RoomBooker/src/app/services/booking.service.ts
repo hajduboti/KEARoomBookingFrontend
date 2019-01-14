@@ -33,7 +33,8 @@ export class BookingService {
   }
 
   bookRoom(bookingData): Observable<any> {
-    return this.http.post(baseUrl + '/booking', bookingData );
+    return this.http.post(baseUrl + '/booking', bookingData ).pipe(
+      map(this.extractData));
   }
 
   getRooms(timeframe): Observable<any> {

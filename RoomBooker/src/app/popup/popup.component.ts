@@ -30,6 +30,10 @@ export class PopupComponent   {
   fromtime;
   totime;
   show: Boolean = true;
+  error: Boolean = false;
+  confirmed: Boolean = false;
+
+
 
 
   constructor(private dataService: DataService, private bs: BookingService, private dialogRef: MatDialogRef<PopupComponent>, private router: Router) {
@@ -56,10 +60,18 @@ export class PopupComponent   {
     };
     this.bs.bookRoom(this.bookingData).subscribe(
       response => {
+        if (typeof response === 'string') {
+          if (response.startsWith('Error')) {
+            this.show = false;
+            this.error = true;
+          }
+        } else {
+        this.show = false;
+        this.confirmed = true;
+        }
       },
       error => console.log('error', error)
     );
-    this.show = false;
     // this.dialogRef.close();
   }
 

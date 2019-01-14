@@ -48,7 +48,6 @@ export class UserpageComponent implements OnInit {
       },
       error => console.log('error')
     );
-    console.log(this.mydata);
   }
 
   setData(data) {
@@ -68,7 +67,6 @@ export class UserpageComponent implements OnInit {
   deleteBooking(bookingID) {
     this.bs.deleteBooking(bookingID).subscribe(
       response => {
-        console.log('booking ' + bookingID + ' was deleted');
         this.fetchData();
       },
       error => console.log('error') // maybe also popup with wrong credentials?

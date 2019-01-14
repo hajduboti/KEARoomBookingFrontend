@@ -11,7 +11,7 @@
 </div>
 </div>
 
-<div *ngIf="!show">
+<div *ngIf="confirmed">
     <h1 mat-dialog-title>Booking is confirmed</h1>
     <h1 mat-dialog-title>A confirmation email has been sent to your email</h1>
     <p>Your room: {{this.roomID}}</p>
@@ -22,4 +22,11 @@
   <button mat-button (click)="redirectHomepage()" cdkFocusInitial>Homepage</button>
   <button mat-button (click)="redirectMybookings()" cdkFocusInitial>My Bookings</button>
 </div>
+</div>
+
+<div *ngIf="error">
+  <h1 mat-dialog-title>Sorry, you have already booked a room in this timeframe</h1>
+  <div  mat-dialog-actions>
+    <button mat-button (click)="redirectHomepage()" cdkFocusInitial>Choose another time</button>
+  </div>
 </div>
