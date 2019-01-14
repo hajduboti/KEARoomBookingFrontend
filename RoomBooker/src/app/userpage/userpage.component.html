@@ -32,7 +32,7 @@
     <th mat-header-cell *matHeaderCellDef>
       </th>
     <td mat-cell *matCellDef="let element">
-      <button value="{{element.bookingID}}" mat-button color="warn" #ref (click)="deleteBooking(element.bookingID)"> Delete</button>
+      <button mat-button color="warn"  (click)="deleteBooking(element.bookingID)"> Delete</button>
     </td>
   </ng-container>
 

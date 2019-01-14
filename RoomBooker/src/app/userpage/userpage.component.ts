@@ -31,20 +31,24 @@ export class UserpageComponent implements OnInit {
   constructor(private bs: BookingService, private router: Router) { }
 
   ngOnInit() {
+   this.fetchData();
+  }
+
+  fetchData() {
+    this.mydata = [];
     const user = JSON.parse(localStorage.getItem('currentUser'));
     this.id = user['user'];
-    console.log(this.id);
     this.bs.getUserBookings(this.id).subscribe(
       response => {
-        console.log(response);
         response.forEach(element => {
           this.mydata.push(element);
         });
         this.setData(this.mydata);
         this.dataSource = this.mydata;
       },
-      error => console.log('error') // maybe also popup with wrong credentials?
+      error => console.log('error')
     );
+    console.log(this.mydata);
   }
 
   setData(data) {
@@ -54,6 +58,7 @@ export class UserpageComponent implements OnInit {
       const newDate = from.substring(0, 10);
       const newFrom = from.substring(11, 17);
       const newTo = to.substring(11, 17);
+
       element.date = newDate;
       element.startDate = newFrom;
       element.endDate = newTo;
@@ -63,11 +68,14 @@ export class UserpageComponent implements OnInit {
   deleteBooking(bookingID) {
     this.bs.deleteBooking(bookingID).subscribe(
       response => {
-        console.log(response);
+        console.log('booking ' + bookingID + ' was deleted');
+        this.fetchData();
       },
       error => console.log('error') // maybe also popup with wrong credentials?
     );
+
   }
+
 
 
 }
