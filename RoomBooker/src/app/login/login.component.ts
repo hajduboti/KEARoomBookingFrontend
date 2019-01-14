@@ -28,6 +28,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
     this.as.currentUser.subscribe(userStatus => this.userStatus = userStatus); // why?
+    if (this.as.isAuthenticated) {
+      this.router.navigate(['/']);
+   }
   }
 
   logIn() {
