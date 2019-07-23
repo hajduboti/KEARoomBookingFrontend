@@ -1,5 +1,5 @@
 # Frontend of room booking system for KEA
-This is the frontend part of a project developed for the final examination at København's Erhvervsakademi. The backend repository can be found here: https://github.com/IodizedSalt/KEARoomBooking
+This is the frontend part of a project developed for the final examination at København's Erhvervsakademi. 
 
 ![alt text](https://github.com/IodizedSalt/KEARoomBooking/raw/master/img/0.1.PNG)
 
